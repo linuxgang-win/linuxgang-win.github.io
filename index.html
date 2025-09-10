@@ -243,7 +243,7 @@ h1::before {
     pointer-events: none;
 }
 
-.matrix-copied {
+.session-copied {
     position: fixed;
     bottom: 30px;
     left: 50%;
@@ -262,7 +262,7 @@ h1::before {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
-.matrix-copied.show {
+.session-copied.show {
     opacity: 1;
 }
 
@@ -735,7 +735,7 @@ h1::before {
         right: 20px;
     }
     
-    .matrix-copied {
+    .session-copied {
         font-size: 14px;
         padding: 12px 20px;
         bottom: 25px;
@@ -834,8 +834,8 @@ h1::before {
     </video>
   </div>
 
-  <div class="matrix-copied" id="matrixCopied">
-    Matrix ID copied to clipboard!
+ <div class="session-copied" id="sessionCopied">
+    Session ID copied to clipboard!
   </div>
 
   <div class="container">
@@ -852,8 +852,8 @@ h1::before {
               <img src="si.png" alt="Signal" class="icon" />
               <span class="label">Seks</span>
           </a>
-          <div class="messaging-app matrix" title="Matrix" data-matrix-id="@batyka:bladerunn.in">
-              <img src="el.png" alt="Matrix" class="icon" />
+          <div class="messaging-app session" title="Session" data-session-id="">
+              <img src="se.png" alt="Session" class="icon" />
               <span class="label">Click me</span>
           </div>
       </div>
@@ -1190,15 +1190,15 @@ h1::before {
       }
     });
 
-    const matrixApp = document.querySelector('.messaging-app.matrix');
-    const matrixCopied = document.getElementById('matrixCopied');
+    const sessionApp = document.querySelector('.messaging-app.session');
+    const sessionCopied = document.getElementById('sessionCopied');
 
-    App.addEventListener('click', () => {
-      const matrixId = matrixApp.getAttribute('data-matrix-id');
-      navigator.clipboard.writeText(matrixId).then(() => {
-        matrixCopied.classList.add('show');
+    sessionApp.addEventListener('click', () => {
+      const sessionId = sessionApp.getAttribute('data-session-id');
+      navigator.clipboard.writeText(sessionId).then(() => {
+        sessionCopied.classList.add('show');
         setTimeout(() => {
-          matrixCopied.classList.remove('show');
+          sessionCopied.classList.remove('show');
         }, 2000);
       }).catch(err => {
         console.error('Failed to copy: ', err);
@@ -1389,6 +1389,7 @@ h1::before {
 </body>
 
 </html>
+
 
 
 
