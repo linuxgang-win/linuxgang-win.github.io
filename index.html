@@ -243,7 +243,7 @@ h1::before {
     pointer-events: none;
 }
 
-.session-copied {
+.matrix-copied {
     position: fixed;
     bottom: 30px;
     left: 50%;
@@ -262,7 +262,7 @@ h1::before {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
-.session-copied.show {
+.matrix-copied.show {
     opacity: 1;
 }
 
@@ -735,7 +735,7 @@ h1::before {
         right: 20px;
     }
     
-    .session-copied {
+    .matrix-copied {
         font-size: 14px;
         padding: 12px 20px;
         bottom: 25px;
@@ -852,7 +852,7 @@ h1::before {
               <img src="si.png" alt="Signal" class="icon" />
               <span class="label">Seks</span>
           </a>
-          <div class="messaging-app session" title="Session" data-session-id="@batyka:bladerunn.in">
+          <div class="messaging-app matrix" title="Matrix" data-matrix-id="@batyka:bladerunn.in">
               <img src="el.png" alt="Matrix" class="icon" />
               <span class="label">Click me</span>
           </div>
@@ -1190,15 +1190,15 @@ h1::before {
       }
     });
 
-    const sessionApp = document.querySelector('.messaging-app.session');
-    const sessionCopied = document.getElementById('sessionCopied');
+    const matrixApp = document.querySelector('.messaging-app.matrix');
+    const matrixCopied = document.getElementById('matrixCopied');
 
-    sessionApp.addEventListener('click', () => {
-      const sessionId = sessionApp.getAttribute('data-session-id');
-      navigator.clipboard.writeText(sessionId).then(() => {
-        sessionCopied.classList.add('show');
+    App.addEventListener('click', () => {
+      const matrixId = matrixApp.getAttribute('data-matrix-id');
+      navigator.clipboard.writeText(matrixId).then(() => {
+        matrixCopied.classList.add('show');
         setTimeout(() => {
-          sessionCopied.classList.remove('show');
+          matrixCopied.classList.remove('show');
         }, 2000);
       }).catch(err => {
         console.error('Failed to copy: ', err);
@@ -1389,6 +1389,7 @@ h1::before {
 </body>
 
 </html>
+
 
 
 
